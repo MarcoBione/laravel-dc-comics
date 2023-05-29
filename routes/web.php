@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ComicBookController::class, 'index'])->name('home');
+
+//risorse per comics
+Route::resource('comics', ComicBookController::class);
+
+
