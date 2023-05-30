@@ -1,8 +1,8 @@
 <footer>
 
     <div>
-        <h3>
-            Made by Marco Bione
-        </h3>
+        <p>
+            questo è un footer
+        </p>
     </div>
 </footer>

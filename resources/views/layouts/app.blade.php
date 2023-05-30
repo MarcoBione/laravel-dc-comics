@@ -18,7 +18,9 @@
 <body>
 
     @include('partials.header')
+    @yield('form')
     @yield('maincontent')
+    @yield('indexcontent')
     @include('partials.footer')
 
 </body>

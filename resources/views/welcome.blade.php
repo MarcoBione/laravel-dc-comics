@@ -2,14 +2,6 @@
 
 @section('maincontent')
     <main>
-
-        <ul>
-            @foreach ($comic as $item)
-                <li>
-                    {{ $item->title }}
-                </li>
-            @endforeach
-        </ul>
-
+        <h1>titles</h1>
     </main>
 @endsection
