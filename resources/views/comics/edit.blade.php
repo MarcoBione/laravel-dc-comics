@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('form')
-    <form action="{{ route('comics.update') }}" method="POST">
+    <form action="{{ route('comics.update', ['id' => $comic->id]) }}" method="POST">
         @csrf
 
+        @method('PUT')
         <label for="title">Titolo</label>
         <input type="text" name="title" id="title" value="{{ $comic->title }}">
 
