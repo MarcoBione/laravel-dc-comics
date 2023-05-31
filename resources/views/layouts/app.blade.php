@@ -20,6 +20,7 @@
     @include('partials.header')
     @yield('form')
     @yield('maincontent')
+    @yield('modify')
     @yield('indexcontent')
     @include('partials.footer')
 
