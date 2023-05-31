@@ -39,6 +39,15 @@ class ComicBookController extends Controller
     {
         $data = $request->all();
 
+        $request->validate([
+            'title'=> 'required|unique:ComicBook|max:255',
+            'description'=>'required',
+            'thumb'=>'required|max:255',
+            'price'=> 'required',
+            'series'=> 'required|max:100',
+            'type'=> 'required|max:50'
+        ]);
+
         $newComicBook = new ComicBook;
         $newComicBook->title = $data['title'];
         $newComicBook->description = $data['description'];
