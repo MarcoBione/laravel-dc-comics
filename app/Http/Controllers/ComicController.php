@@ -2,38 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\comic;
-use App\Models\ComicBook;
+use App\Models\Comic;
 use Illuminate\Http\Request;
 
-class ComicBookController extends Controller
+class ComicController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
-        $comic = comic::all();
+        $comic = Comic::all();
         return view('comics.index', compact('comic'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('comics.create', compact('comic'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -48,7 +45,7 @@ class ComicBookController extends Controller
             'type'=> 'required|max:50'
         ]);
 
-        $newComicBook = new ComicBook;
+        $newComicBook = new Comic;
         $newComicBook->title = $data['title'];
         $newComicBook->description = $data['description'];
         $newComicBook->thumb = $data['thumb'];
@@ -61,11 +58,10 @@ class ComicBookController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comic $Comic)
     {
-        $comic = comic::find($id);
+        //$comic = comic::find($id);
         return view('comics.show', compact('comic'));
     }
 
@@ -73,11 +69,10 @@ class ComicBookController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $Comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -85,21 +80,19 @@ class ComicBookController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $Comic)
     {
-        //
+        return view('comics.show', compact('comic'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $Comic)
     {
-        //
+        $Comic->delete();
     }
 }

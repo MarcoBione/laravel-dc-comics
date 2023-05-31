@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ComicBookController;
+use App\Http\Controllers\ComicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +14,9 @@ use App\Http\Controllers\ComicBookController;
 |
 */
 
-Route::get('/', [ComicBookController::class, 'index'])->name('home');
+Route::get('/', [ComicController::class, 'index'])->name('home');
 
 //risorse per comics
-Route::resource('comics', ComicBookController::class);
+Route::resource('comics', ComicController::class);
 
 
