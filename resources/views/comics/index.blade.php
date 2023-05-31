@@ -11,7 +11,11 @@
                     {{ $item->price }}
                     <a href="{{ route('comics.show', $item->id) }}">Info</a>
                     <a href="{{ route('comics.edit', $item->id) }}">Edit</a>
-                    <a href="{{ route('comics.destroy', $item->id) }}">Delete</a>
+                    <form action="{{ route('comics.destroy', $item->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Delete">
+                    </form>
                 </li>
             @endforeach
         </ul>
