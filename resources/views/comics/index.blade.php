@@ -2,7 +2,7 @@
 
 @section('indexcontent')
     <main>
-
+        <a href="{{ route('comics.create') }}">Add</a>
         <ul>
             @foreach ($comic as $item)
                 <li>
@@ -11,7 +11,7 @@
                     {{ $item->price }}
                     <a href="{{ route('comics.show', $item->id) }}">Info</a>
                     <a href="{{ route('comics.edit', $item->id) }}">Edit</a>
-                    <a href="{{ route('comics.delete', $item->id) }}">Delete</a>
+                    <a href="{{ route('comics.destroy', $item->id) }}">Delete</a>
                 </li>
             @endforeach
         </ul>
