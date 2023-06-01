@@ -13,7 +13,7 @@ class ComicRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class ComicRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'=> 'required|unique:comics|max:255',
+            'description'=>'required',
+            'thumb'=>'max:255',
+            'price'=> 'required',
+            'series'=> 'required|max:100',
+            'type'=> 'required|max:50'
         ];
     }
 }
